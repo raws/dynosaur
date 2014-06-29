@@ -1,0 +1,13 @@
+#!/usr/bin/env ruby
+
+$:.unshift File.join(File.dirname(__FILE__), '../lib')
+require 'dynosaur/watcher'
+require 'eventmachine'
+
+$stdout.sync = true
+$stderr.sync = true
+
+EventMachine.run do
+  watcher = Dynosaur::Watcher.new(ENV['DYNOSAUR_HEROKU_APP'], ENV['DYNOSAUR_HEROKU_TOKEN'])
+  watcher.boot
+end

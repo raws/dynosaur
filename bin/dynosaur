@@ -1,0 +1,14 @@
+#!/usr/bin/env ruby
+
+command = ARGV[0]
+commands = Dir[File.join(File.dirname(__FILE__), '../libexec/dynosaur-*')].map do |path|
+  path[/-([^\/]+)\z/, 1]
+end.sort
+
+if commands.include?(command)
+  path = File.expand_path(File.join(File.dirname(__FILE__), "../libexec/dynosaur-#{command}"))
+  exec path, *ARGV[1..-1]
+else
+  $stderr.puts "usage: dynosaur <#{commands.join(' | ')}> ..."
+  exit 1
+end
