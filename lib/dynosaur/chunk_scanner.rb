@@ -16,7 +16,6 @@ module Dynosaur
 
     def scan(&callback)
       @chunk.scan(PATTERN) do |time, dyno, message|
-        time = DateTime.iso8601(time).to_time
         callback.call time, dyno, message
       end
     end

@@ -5,8 +5,10 @@ Monitor your Heroku dynos.
 ### Usage
 
 ```bash
+echo DYNO_TYPES=web,worker >> .env
 echo HEROKU_TOKEN=`heroku auth:token` >> .env
 echo HEROKU_APP=salty-gorge-4269 >> .env
+echo REDIS_URL=redis://localhost:6379 >> .env
 
 bundle
 foreman start
