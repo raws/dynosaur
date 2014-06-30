@@ -8,6 +8,6 @@ $stdout.sync = true
 $stderr.sync = true
 
 EventMachine.run do
-  watcher = Dynosaur::Watcher.new(ENV['DYNOSAUR_HEROKU_APP'], ENV['DYNOSAUR_HEROKU_TOKEN'])
+  watcher = Dynosaur::Watcher.new(ENV['HEROKU_APP'], ENV['HEROKU_TOKEN'])
   watcher.boot
 end

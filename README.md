@@ -5,8 +5,8 @@ Monitor your Heroku dynos.
 ### Usage
 
 ```bash
-echo DYNOSAUR_HEROKU_TOKEN=`heroku auth:token` >> .env
-echo DYNOSAUR_HEROKU_APP=salty-gorge-4269 >> .env
+echo HEROKU_TOKEN=`heroku auth:token` >> .env
+echo HEROKU_APP=salty-gorge-4269 >> .env
 
 bundle
 foreman start
